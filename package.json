@@ -1,120 +1,120 @@
 {
-  "name": "the-cool-tool",
-  "author": "WillowTree",
-  "version": "1.0.0",
-  "description": "A cool tool with a bunch of utilities to assist in development. For example, a QR code generator and a base 64 encoder.",
-  "main": "./.webpack/main/index.js",
-  "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "release": "electron-forge publish",
-    "lint": "eslint . --ext js,ts",
-    "test": "jest"
-  },
-  "keywords": [],
-  "license": "MIT",
-  "dependencies": {
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-hot-loader": "4.13.0",
-    "styled-components": "5.3.5"
-  },
-  "devDependencies": {
-    "@babel/core": "7.17.8",
-    "@babel/plugin-transform-runtime": "7.17.0",
-    "@babel/preset-env": "7.16.11",
-    "@babel/preset-react": "7.16.7",
-    "@babel/preset-typescript": "7.16.7",
-    "@electron-forge/cli": "6.0.0-beta.63",
-    "@electron-forge/maker-deb": "6.0.0-beta.63",
-    "@electron-forge/maker-rpm": "6.0.0-beta.63",
-    "@electron-forge/maker-squirrel": "6.0.0-beta.63",
-    "@electron-forge/maker-zip": "6.0.0-beta.63",
-    "@electron-forge/plugin-webpack": "6.0.0-beta.63",
-    "@marshallofsound/webpack-asset-relocator-loader": "0.5.0",
-    "@testing-library/jest-dom": "5.16.3",
-    "@testing-library/react": "12.1.4",
-    "@types/electron-devtools-installer": "2.2.1",
-    "@types/jest": "27.4.1",
-    "@types/react": "17.0.42",
-    "@types/react-dom": "17.0.14",
-    "@types/styled-components": "5.1.24",
-    "@typescript-eslint/eslint-plugin": "5.16.0",
-    "@typescript-eslint/parser": "5.16.0",
-    "babel-loader": "8.2.4",
-    "cross-env": "7.0.3",
-    "electron": "17.2.0",
-    "eslint": "8.11.0",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-config-standard": "16.0.3",
-    "eslint-plugin-import": "2.25.4",
-    "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-prettier": "4.0.0",
-    "eslint-plugin-promise": "6.0.0",
-    "eslint-plugin-react": "7.29.4",
-    "eslint-plugin-standard": "5.0.0",
-    "file-loader": "6.2.0",
-    "jest": "27.5.1",
-    "npm-run-all": "4.1.5",
-    "prettier": "2.6.0",
-    "ts-jest": "27.1.3",
-    "typescript": "4.6.2",
-    "wait-on": "6.0.1"
-  },
-  "config": {
-    "forge": {
-      "packagerConfig": {
-        "name": "Electron starter",
-        "executableName": "electron-starter",
-        "icon": "assets/icon",
-        "extraResource": [
-          "assets"
-        ]
-      },
-      "plugins": [
-        [
-          "@electron-forge/plugin-webpack",
-          {
-            "mainConfig": "./webpack/main.webpack.js",
-            "renderer": {
-              "config": "./webpack/renderer.webpack.js",
-              "entryPoints": [
+    "name": "the-cool-tool",
+    "author": "WillowTree",
+    "version": "1.0.0",
+    "description": "A cool tool with a bunch of utilities to assist in development. For example, a QR code generator and a base 64 encoder.",
+    "main": "./.webpack/main/index.js",
+    "scripts": {
+        "start": "electron-forge start",
+        "package": "electron-forge package",
+        "make": "electron-forge make",
+        "release": "electron-forge publish",
+        "lint": "eslint . --ext js,ts",
+        "test": "jest"
+    },
+    "keywords": [],
+    "license": "MIT",
+    "dependencies": {
+        "react": "17.0.2",
+        "react-dom": "17.0.2",
+        "react-hot-loader": "4.13.0",
+        "styled-components": "5.3.5"
+    },
+    "devDependencies": {
+        "@babel/core": "7.17.8",
+        "@babel/plugin-transform-runtime": "7.17.0",
+        "@babel/preset-env": "7.16.11",
+        "@babel/preset-react": "7.16.7",
+        "@babel/preset-typescript": "7.16.7",
+        "@electron-forge/cli": "6.0.0-beta.63",
+        "@electron-forge/maker-deb": "6.0.0-beta.63",
+        "@electron-forge/maker-rpm": "6.0.0-beta.63",
+        "@electron-forge/maker-squirrel": "6.0.0-beta.63",
+        "@electron-forge/maker-zip": "6.0.0-beta.63",
+        "@electron-forge/plugin-webpack": "6.0.0-beta.63",
+        "@marshallofsound/webpack-asset-relocator-loader": "0.5.0",
+        "@testing-library/jest-dom": "5.16.3",
+        "@testing-library/react": "12.1.4",
+        "@types/electron-devtools-installer": "2.2.1",
+        "@types/jest": "27.4.1",
+        "@types/react": "17.0.42",
+        "@types/react-dom": "17.0.14",
+        "@types/styled-components": "5.1.24",
+        "@typescript-eslint/eslint-plugin": "5.16.0",
+        "@typescript-eslint/parser": "5.16.0",
+        "babel-loader": "8.2.4",
+        "cross-env": "7.0.3",
+        "electron": "17.2.0",
+        "eslint": "8.11.0",
+        "eslint-config-prettier": "8.5.0",
+        "eslint-config-standard": "16.0.3",
+        "eslint-plugin-import": "2.25.4",
+        "eslint-plugin-node": "11.1.0",
+        "eslint-plugin-prettier": "4.0.0",
+        "eslint-plugin-promise": "6.0.0",
+        "eslint-plugin-react": "7.29.4",
+        "eslint-plugin-standard": "5.0.0",
+        "file-loader": "6.2.0",
+        "jest": "27.5.1",
+        "npm-run-all": "4.1.5",
+        "prettier": "2.6.0",
+        "ts-jest": "27.1.3",
+        "typescript": "4.6.2",
+        "wait-on": "6.0.1"
+    },
+    "config": {
+        "forge": {
+            "packagerConfig": {
+                "name": "Electron starter",
+                "executableName": "electron-starter",
+                "icon": "assets/icon",
+                "extraResource": [
+                    "assets"
+                ]
+            },
+            "plugins": [
+                [
+                    "@electron-forge/plugin-webpack",
+                    {
+                        "mainConfig": "./webpack/main.webpack.js",
+                        "renderer": {
+                            "config": "./webpack/renderer.webpack.js",
+                            "entryPoints": [
+                                {
+                                    "html": "./public/index.html",
+                                    "js": "./src/index.tsx",
+                                    "name": "main_window",
+                                    "preload": {
+                                        "js": "./electron/bridge.ts"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            ],
+            "makers": [
                 {
-                  "html": "./public/index.html",
-                  "js": "./src/index.tsx",
-                  "name": "main_window",
-                  "preload": {
-                    "js": "./electron/bridge.ts"
-                  }
+                    "name": "@electron-forge/maker-squirrel",
+                    "config": {
+                        "name": "Electron Starter"
+                    }
+                },
+                {
+                    "name": "@electron-forge/maker-zip",
+                    "platforms": [
+                        "darwin"
+                    ]
+                },
+                {
+                    "name": "@electron-forge/maker-deb",
+                    "config": {}
+                },
+                {
+                    "name": "@electron-forge/maker-rpm",
+                    "config": {}
                 }
-              ]
-            }
-          }
-        ]
-      ],
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "Electron Starter"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
+            ]
         }
-      ]
     }
-  }
 }

@@ -1,28 +1,28 @@
 import styled from 'styled-components'
 
 export const Container = styled.button`
-  height: 42px;
-  padding: 0 24px;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    height: 42px;
+    padding: 0 24px;
 
-  background: #8257e6;
-  border-radius: 8px;
-  border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  color: #FFF;
-  font-size: 16px;
-  font-weight: bold;
+    background: #8257e6;
+    border-radius: 8px;
+    border: 0;
 
-  cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
 
-  &:hover {
-    filter: brightness(0.9);
-  }
+    cursor: pointer;
 
-  &:active {
-    filter: brightness(0.7);
-  }
+    &:hover {
+        filter: brightness(0.9);
+    }
+
+    &:active {
+        filter: brightness(0.7);
+    }
 `
