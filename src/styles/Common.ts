@@ -73,3 +73,26 @@ export const Links = styled.div`
       }
     }
 `
+
+export const Wrapper = styled.div`
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+`
+
+export const Nav = styled.nav`
+    width: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #ccc;
+`
+
+export const Main = styled.main`
+    width: 85%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+`

@@ -1,4 +1,4 @@
-import { Container, Text, Header, Button } from '../../styles/Common'
+import { Text, Header, Button } from '../../styles/Common'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { Buffer } from 'buffer'
@@ -17,28 +17,26 @@ export function JsonYamlTool() {
 
     return (
         <>
-            <Container>
-                <Header>
-                    <Text>JSON/YAML tool</Text>
-                </Header>
-                <label>
-                    <Text>Enter JSON</Text>
-                    <textarea
-                        onChange={e => setInputValue(e.target.value)}
-                        id="json-input"
-                        rows={10}
-                        cols={100}
-                    />
-                </label>
-                <label>
-                    <Button onClick={() => convertJsonToYaml()}>Submit</Button>
-                </label>
+            <Header>
+                <Text>JSON/YAML tool</Text>
+            </Header>
+            <label>
+                <Text>Enter JSON</Text>
+                <textarea
+                    onChange={e => setInputValue(e.target.value)}
+                    id="json-input"
+                    rows={10}
+                    cols={100}
+                />
+            </label>
+            <label>
+                <Button onClick={() => convertJsonToYaml()}>Submit</Button>
+            </label>
 
-                <label>
-                    <Text>Output</Text>
-                    <textarea id="yaml-output" rows={10} cols={100} value={outputValue} readOnly />
-                </label>
-            </Container>
+            <label>
+                <Text>Output</Text>
+                <textarea id="yaml-output" rows={10} cols={100} value={outputValue} readOnly />
+            </label>
         </>
     )
 }
