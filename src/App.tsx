@@ -1,12 +1,22 @@
-import { GlobalStyle } from './styles/GlobalStyle'
-
-import { Greetings } from './components/Greetings'
+import {
+    HashRouter,
+    Route,
+    Routes
+} from "react-router-dom";
+import { Home } from "./components/Home";
+import { Base64Tool } from "./components/Base64Tool";
+import { GlobalStyle } from "./styles/GlobalStyle";
 
 export function App() {
     return (
         <>
             <GlobalStyle />
-            <Greetings />
+            <HashRouter>
+                <Routes>
+                    <Route path="/" element={ <Home /> } />
+                    <Route path="/base64" element={ <Base64Tool /> } />
+                </Routes>
+            </HashRouter>
         </>
     )
 }

@@ -1,5 +1,5 @@
 import { Button } from '../Button'
-import { Container, Image, Text } from './styles'
+import { Container, Text } from '../../styles/Common'
 
 export function Greetings() {
     function handleSayHello() {
