@@ -3,7 +3,7 @@
     "author": "WillowTree",
     "version": "1.0.0",
     "description": "A cool tool with a bunch of utilities to assist in development. For example, a QR code generator and a base 64 encoder.",
-    "main": "./.webpack/main/index.js",
+    "main": "./.webpack/main",
     "scripts": {
         "start": "electron-forge start",
         "package": "electron-forge package",
@@ -15,12 +15,16 @@
     "keywords": [],
     "license": "MIT",
     "dependencies": {
+        "buffer": "6.0.3",
         "react": "17.0.2",
         "react-dom": "17.0.2",
         "react-hot-loader": "4.13.0",
         "react-router-dom": "6.2.2",
         "styled-components": "5.3.5",
-        "buffer": "6.0.3"
+        "yaml": "^1.10.2",
+        "uuid": "8.3.2",
+        "qrcode": "1.5.0",
+        "jsonic": "1.0.1"
     },
     "devDependencies": {
         "@babel/core": "7.17.8",
@@ -42,8 +46,11 @@
         "@types/react": "17.0.42",
         "@types/react-dom": "17.0.14",
         "@types/styled-components": "5.1.24",
+        "@types/uuid": "8.3.4",
         "@typescript-eslint/eslint-plugin": "5.16.0",
         "@typescript-eslint/parser": "5.16.0",
+        "@types/qrcode": "1.4.2",
+        "@types/jsonic": "0.3.1",
         "babel-loader": "8.2.4",
         "cross-env": "7.0.3",
         "electron": "17.2.0",
@@ -67,8 +74,8 @@
     "config": {
         "forge": {
             "packagerConfig": {
-                "name": "Electron starter",
-                "executableName": "electron-starter",
+                "name": "The Cool Tool",
+                "executableName": "cool-tool",
                 "icon": "assets/icon",
                 "extraResource": [
                     "assets"

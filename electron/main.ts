@@ -13,8 +13,8 @@ declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string
 function createWindow() {
     mainWindow = new BrowserWindow({
         // icon: path.join(assetsPath, 'assets', 'icon.png'),
-        width: 1100,
-        height: 700,
+        width: 1600,
+        height: 800,
         backgroundColor: '#191622',
         webPreferences: {
             nodeIntegration: false,
@@ -25,7 +25,9 @@ function createWindow() {
 
     mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
 
-    mainWindow.webContents.openDevTools()
+    if (process.env.NODE_ENV !== 'production') {
+        mainWindow.webContents.openDevTools()
+    }
 
     mainWindow.on('closed', () => {
         mainWindow = null

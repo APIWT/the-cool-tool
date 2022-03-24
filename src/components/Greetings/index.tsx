@@ -1,5 +1,5 @@
 import { Button } from '../Button'
-import { Container, Text } from '../../styles/Common'
+import { Text } from '../../styles/Common'
 
 export function Greetings() {
     function handleSayHello() {
@@ -9,14 +9,9 @@ export function Greetings() {
     }
 
     return (
-        <Container>
-            <Text>
-                An Electron boilerplate including TypeScript, React, Jest and
-                ESLint.
-            </Text>
-            <Button onClick={handleSayHello}>
-                Send message to main process
-            </Button>
-        </Container>
+        <>
+            <Text>An Electron boilerplate including TypeScript, React, Jest and ESLint.</Text>
+            <Button onClick={handleSayHello}>Send message to main process</Button>
+        </>
     )
 }
