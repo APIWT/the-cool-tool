@@ -22,6 +22,11 @@ export const Container = styled.div`
     }
 `
 
+export const Label = styled.label`
+    display: block;
+    margin-bottom: 20px;
+`
+
 export const Image = styled.img`
     width: 240px;
     animation: ${rotate} 15s linear infinite;

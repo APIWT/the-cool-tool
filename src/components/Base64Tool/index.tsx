@@ -1,4 +1,4 @@
-import { Container, Text } from '../../styles/Common'
+import { Container, Text, Label } from '../../styles/Common'
 import { Link } from "react-router-dom";
 import {useMemo, useState, useEffect} from "react";
 import  { Buffer } from 'buffer';
@@ -63,11 +63,11 @@ export function Base64Tool() {
         );
     } else if (typeValue === "hex") {
         input = (
-            <input type="text" placeholder="Enter HEX here to encode" onChange={e => setHexValue(e.target.value)} />
+            <textarea placeholder="Enter HEX here to encode" onChange={e => setHexValue(e.target.value)} />
         );
     } else {
         input = (
-            <input type="text" placeholder="Encode me" onChange={e => setInputValue(e.target.value)} />
+            <textarea placeholder="Encode me" onChange={e => setInputValue(e.target.value)} />
         );
     }
 
@@ -75,13 +75,22 @@ export function Base64Tool() {
         <>
             <Container>
                 <Text>
-                    <select onChange={e => setTypeValue(e.target.value)}>
-                        <option value="text">From Text</option>
-                        <option value="file">From File</option>
-                        <option value="hex">From Hex</option>
-                    </select>
-                    {input}
-                    <input type="text" readOnly value={base64Value} />
+                    <Label>
+                        Mode:
+                        <select onChange={e => setTypeValue(e.target.value)}>
+                            <option value="text">From Text</option>
+                            <option value="file">From File</option>
+                            <option value="hex">From Hex</option>
+                        </select>
+                    </Label>
+                    <Label>
+                        Input:
+                        {input}
+                    </Label>
+                    <Label>
+                        Encoded Value:
+                        <textarea readOnly value={base64Value} />
+                    </Label>
                     <Link to="/">Go home</Link>
                 </Text>
             </Container>
