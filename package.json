@@ -3,7 +3,7 @@
     "author": "WillowTree",
     "version": "1.0.0",
     "description": "A cool tool with a bunch of utilities to assist in development. For example, a QR code generator and a base 64 encoder.",
-    "main": "./.webpack/main/index.js",
+    "main": "./.webpack/main",
     "scripts": {
         "start": "electron-forge start",
         "package": "electron-forge package",
