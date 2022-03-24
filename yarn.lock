@@ -1932,6 +1932,11 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
+"@types/jsonic@0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@types/jsonic/-/jsonic-0.3.1.tgz#a260a6fcd4f83dd5495796671a9e31ddfee18c00"
+  integrity sha512-m8heHEwexh4OsmlonF4mNSk1j6TnnghPAL52qykFfqMBt8gU2+EnhjQI5FujCD0EN+QzyjxviX2/b54d89d1kw==
+
 "@types/keyv@*":
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/@types/keyv/-/keyv-3.1.4.tgz#3ccdb1c6751b0c7e52300bcdacd5bcbf8faa75b6"
@@ -6211,6 +6216,11 @@ jsonfile@^6.0.1:
     universalify "^2.0.0"
   optionalDependencies:
     graceful-fs "^4.1.6"
+
+jsonic@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/jsonic/-/jsonic-1.0.1.tgz#817054df7abfaf525ecf39d6647a2ed6d5fca7f1"
+  integrity sha512-6GitEN4plTuB/I1o9kDZl7Pgc+DvFG1BG88IqaUz4eQglCA1uAgxWdXhLNA6ffaYsmzPjOysDpp6CYTwRiuXLw==
 
 jsprim@^1.2.2:
   version "1.4.2"

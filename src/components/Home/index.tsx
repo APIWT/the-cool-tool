@@ -12,6 +12,7 @@ export function Home() {
                     <Link to="/qrcode">Go to QR code tool</Link>
                     <Link to="/filesearch">Go to File Search tool</Link>
                     <Link to="/json-yaml">Go to JSON/YAML tool</Link>
+                    <Link to="/json-beautifier">Go to JSON beautifier tool</Link>
                 </Links>
             </Container>
         </>

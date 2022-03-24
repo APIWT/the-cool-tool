@@ -10,6 +10,7 @@ import { UuidTool } from "./components/UuidTool";
 import { GlobalStyle } from "./styles/GlobalStyle";
 import { FileSearchTool } from './components/FileSearchTool';
 import { JsonYamlTool } from './components/JsonYamlTool'
+import { JsonBeautifierTool } from './components/JsonBeautifierTool'
 
 export function App() {
     return (
@@ -23,6 +24,7 @@ export function App() {
                     <Route path="/qrcode" element={ <QRCodeTool /> } />
                     <Route path="/filesearch" element={ <FileSearchTool /> } />
                     <Route path="/json-yaml" element={<JsonYamlTool />} />
+                    <Route path="/json-beautifier" element={<JsonBeautifierTool />} />
                 </Routes>
             </HashRouter>
         </>
