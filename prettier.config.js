@@ -3,5 +3,6 @@ module.exports = {
     singleQuote: true,
     arrowParens: 'avoid',
     tabWidth: 4,
-    bracketSpacing: true
+    bracketSpacing: true,
+    printWidth: 100
 }
