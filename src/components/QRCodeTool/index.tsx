@@ -1,15 +1,14 @@
 import { Container, Text } from '../../styles/Common'
 import { Link } from "react-router-dom";
 
-export function Home() {
+export function QRCodeTool() {
     return (
         <>
             <Container>
                 <Text>
-                    This is the home page!
-                    <Link to="/base64">Go to base64 tool</Link>
-                    <Link to="/qrcode">Go to QR code tool</Link>
+                    New text for QR code tool.
                 </Text>
+                <Link to="/">Go home</Link>
             </Container>
         </>
     )
