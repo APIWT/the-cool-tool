@@ -1,5 +1,5 @@
 import { Container, Text } from '../../styles/Common'
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 export function Home() {
     return (
@@ -9,6 +9,7 @@ export function Home() {
                     This is the home page!
                     <Link to="/base64">Go to base64 tool</Link>
                     <Link to="/qrcode">Go to QR code tool</Link>
+                    <Link to="/json-yaml">Go to JSON/YAML tool</Link>
                 </Text>
             </Container>
         </>
