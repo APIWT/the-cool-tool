@@ -9,19 +9,21 @@ export function Base64Tool() {
     const [hexValue, setHexValue] = useState('');
     const [fileContents, setFileContents] = useState<Buffer | null>(null);
     const [typeValue, setTypeValue] = useState('');
+    const [encodeDecodeValue, setEncodeDecodeValue] = useState('encode');
+    const [base64Value, setBase64Value] = useState('');
 
     useEffect(() => {
         if (fileValue === null) {
             return;
         }
-        
+
         const reader = new FileReader();
         reader.readAsArrayBuffer(fileValue);
         reader.onloadend = (evt) => {
             if (evt?.target === null || !evt.target.result || evt.target.readyState !== FileReader.DONE) {
                 return;
             }
-            
+
             setFileContents(Buffer.from(evt.target.result as ArrayBuffer));
         };
     }, [fileValue]);
@@ -42,20 +44,49 @@ export function Base64Tool() {
         return Buffer.from(bytes);
     }, [hexValue]);
 
-    const base64Value = useMemo(() => {
-        if (typeValue === "file" && fileContents !== null) {
-            return fileContents.toString('base64');
-        }
+    const encodeDecodeChanger = (
+        <Label>
+            Encode/Decode?:
+            <select onChange={e => setEncodeDecodeValue(e.target.value)}>
+                <option value="encode">Encode</option>
+                <option value="decode">Decode</option>
+            </select>
+        </Label>
+    );
 
-        if (typeValue === "hex" && hexContents !== null) {
-            return hexContents.toString('base64');
-        }
+    if (encodeDecodeValue === "decode") {
+        const doDecode = () => {
+            try {
+                return Buffer.from(base64Value, 'base64').toString('utf8');
+            }
+            catch {
+                return "";
+            }
+        };
 
-        // Default to text input
-        return Buffer.from(inputValue).toString('base64');
-    }, [typeValue, fileContents, inputValue, hexContents]);
+        const decodedValue = doDecode();
 
-    let input = null;
+        return (
+            <>
+                <Container>
+                    <Text>
+                        {encodeDecodeChanger}
+                        <Label>
+                            Input:
+                            <textarea placeholder="Enter encoded base64 here" onChange={e => setBase64Value(e.target.value)} />
+                        </Label>
+                        <Label>
+                            Decoded Value:
+                            <textarea readOnly value={decodedValue} />
+                        </Label>
+                        <Link to="/">Go home</Link>
+                    </Text>
+                </Container>
+            </>
+        );
+    }
+
+    let input;
 
     if (typeValue === "file") {
         input = (
@@ -71,10 +102,26 @@ export function Base64Tool() {
         );
     }
 
+    const doEncode = () => {
+        if (typeValue === "file" && fileContents !== null) {
+            return fileContents.toString('base64');
+        }
+
+        if (typeValue === "hex" && hexContents !== null) {
+            return hexContents.toString('base64');
+        }
+
+        // Default to text input
+        return Buffer.from(inputValue).toString('base64');
+    };
+
+    const encodedValue = doEncode();
+
     return (
         <>
             <Container>
                 <Text>
+                    {encodeDecodeChanger}
                     <Label>
                         Mode:
                         <select onChange={e => setTypeValue(e.target.value)}>
@@ -89,7 +136,7 @@ export function Base64Tool() {
                     </Label>
                     <Label>
                         Encoded Value:
-                        <textarea readOnly value={base64Value} />
+                        <textarea readOnly value={encodedValue} />
                     </Label>
                     <Link to="/">Go home</Link>
                 </Text>
