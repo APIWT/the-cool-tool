@@ -53,3 +53,23 @@ export const Button = styled.button`
     padding: 8px;
     cursor: pointer;
 `
+
+export const Links = styled.div`
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 24px;
+
+    a {
+      text-decoration: none;
+      color: #00bcd4;
+
+      :hover {
+        text-decoration: underline;
+      }
+    }
+`
