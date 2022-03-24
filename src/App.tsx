@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, HashRouter, Route, Link } from 'react-router-dom'
-import { Links, Wrapper, Nav, Main } from './styles/Common'
+import { Links, Wrapper, Nav, Main, Logo } from './styles/Common'
 import { Home } from './components/Home'
 import { Base64Tool } from './components/Base64Tool'
 import { QRCodeTool } from './components/QRCodeTool'
@@ -8,6 +8,8 @@ import { GlobalStyle } from './styles/GlobalStyle'
 import { FileSearchTool } from './components/FileSearchTool'
 import { JsonYamlTool } from './components/JsonYamlTool'
 import { JsonBeautifierTool } from './components/JsonBeautifierTool'
+
+import logo from './assets/logo.png'
 
 const routes = [
     {
@@ -79,6 +81,7 @@ export function App() {
                                 </Link>
                             ))}
                         </Links>
+                        <Logo src={logo} alt="logo" />
                     </Nav>
                     <Main>
                         <Routes>

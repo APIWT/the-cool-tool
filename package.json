@@ -74,8 +74,8 @@
     "config": {
         "forge": {
             "packagerConfig": {
-                "name": "Electron starter",
-                "executableName": "electron-starter",
+                "name": "The Cool Tool",
+                "executableName": "cool-tool",
                 "icon": "assets/icon",
                 "extraResource": [
                     "assets"
