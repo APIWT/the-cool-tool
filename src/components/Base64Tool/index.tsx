@@ -1,4 +1,4 @@
-import { Text, Label } from '../../styles/Common'
+import { Text, Label, Container } from '../../styles/Common'
 import { Link } from 'react-router-dom'
 import { useMemo, useState, useEffect } from 'react'
 import { Buffer } from 'buffer'
@@ -9,6 +9,8 @@ export function Base64Tool() {
     const [hexValue, setHexValue] = useState('')
     const [fileContents, setFileContents] = useState<Buffer | null>(null)
     const [typeValue, setTypeValue] = useState('')
+    const [encodeDecodeValue, setEncodeDecodeValue] = useState('encode')
+    const [base64Value, setBase64Value] = useState('')
 
     useEffect(() => {
         if (fileValue === null) {
@@ -46,20 +48,51 @@ export function Base64Tool() {
         return Buffer.from(bytes)
     }, [hexValue])
 
-    const base64Value = useMemo(() => {
-        if (typeValue === 'file' && fileContents !== null) {
-            return fileContents.toString('base64')
+    const encodeDecodeChanger = (
+        <Label>
+            Encode/Decode?:
+            <select onChange={e => setEncodeDecodeValue(e.target.value)}>
+                <option value="encode">Encode</option>
+                <option value="decode">Decode</option>
+            </select>
+        </Label>
+    )
+
+    if (encodeDecodeValue === 'decode') {
+        const doDecode = () => {
+            try {
+                return Buffer.from(base64Value, 'base64').toString('utf8')
+            } catch {
+                return ''
+            }
         }
 
-        if (typeValue === 'hex' && hexContents !== null) {
-            return hexContents.toString('base64')
-        }
+        const decodedValue = doDecode()
 
-        // Default to text input
-        return Buffer.from(inputValue).toString('base64')
-    }, [typeValue, fileContents, inputValue, hexContents])
+        return (
+            <>
+                <Container>
+                    <Text>
+                        {encodeDecodeChanger}
+                        <Label>
+                            Input:
+                            <textarea
+                                placeholder="Enter encoded base64 here"
+                                onChange={e => setBase64Value(e.target.value)}
+                            />
+                        </Label>
+                        <Label>
+                            Decoded Value:
+                            <textarea readOnly value={decodedValue} />
+                        </Label>
+                        <Link to="/">Go home</Link>
+                    </Text>
+                </Container>
+            </>
+        )
+    }
 
-    let input = null
+    let input
 
     if (typeValue === 'file') {
         input = (
@@ -79,26 +112,45 @@ export function Base64Tool() {
         input = <textarea placeholder="Encode me" onChange={e => setInputValue(e.target.value)} />
     }
 
+    const doEncode = () => {
+        if (typeValue === 'file' && fileContents !== null) {
+            return fileContents.toString('base64')
+        }
+
+        if (typeValue === 'hex' && hexContents !== null) {
+            return hexContents.toString('base64')
+        }
+
+        // Default to text input
+        return Buffer.from(inputValue).toString('base64')
+    }
+
+    const encodedValue = doEncode()
+
     return (
         <>
-            <Text>
-                <Label>
-                    Mode:
-                    <select onChange={e => setTypeValue(e.target.value)}>
-                        <option value="text">From Text</option>
-                        <option value="file">From File</option>
-                        <option value="hex">From Hex</option>
-                    </select>
-                </Label>
-                <Label>
-                    Input:
-                    {input}
-                </Label>
-                <Label>
-                    Encoded Value:
-                    <textarea readOnly value={base64Value} />
-                </Label>
-            </Text>
+            <Container>
+                <Text>
+                    {encodeDecodeChanger}
+                    <Label>
+                        Mode:
+                        <select onChange={e => setTypeValue(e.target.value)}>
+                            <option value="text">From Text</option>
+                            <option value="file">From File</option>
+                            <option value="hex">From Hex</option>
+                        </select>
+                    </Label>
+                    <Label>
+                        Input:
+                        {input}
+                    </Label>
+                    <Label>
+                        Encoded Value:
+                        <textarea readOnly value={encodedValue} />
+                    </Label>
+                    <Link to="/">Go home</Link>
+                </Text>
+            </Container>
         </>
     )
 }

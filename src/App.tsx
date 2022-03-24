@@ -7,6 +7,7 @@ import { UuidTool } from './components/UuidTool'
 import { GlobalStyle } from './styles/GlobalStyle'
 import { FileSearchTool } from './components/FileSearchTool'
 import { JsonYamlTool } from './components/JsonYamlTool'
+import { JsonBeautifierTool } from './components/JsonBeautifierTool'
 
 const routes = [
     {
@@ -50,6 +51,13 @@ const routes = [
         exact: true,
         sidebar: () => <div>JSON/YAML Tool</div>,
         main: () => <JsonYamlTool />,
+    },
+    {
+        path: '/json-beautifier',
+        name: 'JSON Beautifier',
+        exact: true,
+        sidebar: () => <div>JSON Beautifier Tool</div>,
+        main: () => <JsonBeautifierTool />,
     },
 ]
 
