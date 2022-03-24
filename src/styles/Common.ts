@@ -31,3 +31,20 @@ export const Text = styled.p`
     margin-top: 24px;
     font-size: 18px;
 `
+
+export const Header = styled.h1`
+    margin-top: 24px;
+    font-size: 24px;
+    font-weight: bold;
+`
+
+export const Button = styled.button`
+    margin-top: 24px;
+    font-size: 18px;
+    background-color: #00bcd4;
+    color: #fff;
+    border-radius: 4px;
+    border: 1px solid #00bcd4;
+    padding: 8px;
+    cursor: pointer;
+`
