@@ -22,7 +22,8 @@
         "react-router-dom": "6.2.2",
         "styled-components": "5.3.5",
         "yaml": "^1.10.2",
-        "uuid": "8.3.2"
+        "uuid": "8.3.2",
+        "qrcode": "1.5.0"
     },
     "devDependencies": {
         "@babel/core": "7.17.8",
@@ -47,6 +48,7 @@
         "@types/uuid": "8.3.4",
         "@typescript-eslint/eslint-plugin": "5.16.0",
         "@typescript-eslint/parser": "5.16.0",
+        "@types/qrcode": "1.4.2",
         "babel-loader": "8.2.4",
         "cross-env": "7.0.3",
         "electron": "17.2.0",
