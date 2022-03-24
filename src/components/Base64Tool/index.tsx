@@ -6,6 +6,7 @@ import  { Buffer } from 'buffer';
 export function Base64Tool() {
     const [inputValue, setInputValue] = useState('');
     const [fileValue, setFileValue] = useState<File | null>(null);
+    const [hexValue, setHexValue] = useState('');
     const [fileContents, setFileContents] = useState<Buffer | null>(null);
     const [typeValue, setTypeValue] = useState('');
 
@@ -25,28 +26,48 @@ export function Base64Tool() {
         };
     }, [fileValue]);
 
+    const hexContents = useMemo<Buffer>(() => {
+        const hexValueSanitized = hexValue.replace(/[^0-9a-fA-F]/g, '');
+
+        if (hexValueSanitized.length % 2 !== 0) {
+            return Buffer.from([]);
+        }
+
+        const bytes = [];
+
+        for (let index = 0; index < hexValueSanitized.length; index += 2) {
+            bytes.push(parseInt(hexValueSanitized.substring(index, index + 2), 16));
+        }
+
+        return Buffer.from(bytes);
+    }, [hexValue]);
+
     const base64Value = useMemo(() => {
         if (typeValue === "file" && fileContents !== null) {
             return fileContents.toString('base64');
         }
 
+        if (typeValue === "hex" && hexContents !== null) {
+            return hexContents.toString('base64');
+        }
+
         // Default to text input
         return Buffer.from(inputValue).toString('base64');
-    }, [typeValue, fileContents, inputValue]);
+    }, [typeValue, fileContents, inputValue, hexContents]);
 
     let input = null;
 
-    if (typeValue === "text") {
+    if (typeValue === "file") {
+        input = (
+            <input type="file" onChange={(e) => setFileValue(e?.target?.files === null ? null : e.target.files[0])} />
+        );
+    } else if (typeValue === "hex") {
+        input = (
+            <input type="text" placeholder="Enter HEX here to encode" onChange={e => setHexValue(e.target.value)} />
+        );
+    } else {
         input = (
             <input type="text" placeholder="Encode me" onChange={e => setInputValue(e.target.value)} />
-        );
-    }
-
-    let filePicker = null;
-
-    if (typeValue === "file") {
-        filePicker = (
-            <input type="file" onChange={(e) => setFileValue(e?.target?.files === null ? null : e.target.files[0])} />
         );
     }
 
@@ -60,7 +81,6 @@ export function Base64Tool() {
                         <option value="hex">From Hex</option>
                     </select>
                     {input}
-                    {filePicker}
                     <input type="text" readOnly value={base64Value} />
                     <Link to="/">Go home</Link>
                 </Text>
