@@ -22,6 +22,10 @@ export const Container = styled.div`
     }
 `
 
+export const Scrollable = styled.div`
+    max-height: 75vh;
+`
+
 export const Label = styled.label`
     display: block;
     margin-bottom: 20px;
