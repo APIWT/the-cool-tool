@@ -9,6 +9,7 @@ export function Home() {
                     This is the home page!
                     <Link to="/base64">Go to base64 tool</Link>
                     <Link to="/qrcode">Go to QR code tool</Link>
+                    <Link to="/filesearch">Go to File Search tool</Link>
                 </Text>
             </Container>
         </>
