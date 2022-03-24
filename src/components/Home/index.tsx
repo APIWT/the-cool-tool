@@ -1,5 +1,4 @@
-import { Text, Links } from '../../styles/Common'
-import { Link } from 'react-router-dom'
+import { Text } from '../../styles/Common'
 
 export function Home() {
     return (

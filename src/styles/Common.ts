@@ -66,7 +66,7 @@ export const Links = styled.div`
 
     a {
       text-decoration: none;
-      color: #00bcd4;
+      color: var(--secondary-color);
 
       :hover {
         text-decoration: underline;
@@ -87,7 +87,7 @@ export const Nav = styled.nav`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-right: 1px solid #ccc;
+    border-right: 1px solid var(--secondary-color);
 `
 
 export const Main = styled.main`
@@ -95,4 +95,11 @@ export const Main = styled.main`
     height: 100%;
     display: grid;
     place-items: center;
+`
+
+export const Logo = styled.img`
+    width: 100%;
+    height: auto;
+    margin-top: 24px;
+    object-fit: contain;
 `
