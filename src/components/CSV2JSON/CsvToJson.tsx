@@ -95,7 +95,7 @@ export function CsvToJson() {
         <>
             <Container style={styles.page}>
                 <Text>
-                    <h1>Google Sheets CSV to JSON Converter</h1>
+                    <h1>Google Sheets to JSON Converter</h1>
                     <div style={styles.filebar}>
                         <input style={styles.input} type="text" placeholder="Google Sheet Url" onChange={e => setInputValue(e.target.value)} />
                         <button style={styles.button} onClick={getSheet}>Fetch Sheet</button><br/>
@@ -126,6 +126,7 @@ const styles = {
     },
     button: {
         backgroundColor: "green",
+        color: "white",
         borderRadius: 5,
         border: "1px solid white",
         padding: 10,
@@ -139,9 +140,10 @@ const styles = {
     },
     results: {
         position: "relative",
-        margin: 20,
+        backgroundColor: "#DDDDDD",
+        margin: "auto",
         padding: 20,
-        border: "1px solid white",
+        border: "2px solid black",
         width: window.innerWidth / 2,
         height: window.innerWidth / 2,
         overflow: scroll,
