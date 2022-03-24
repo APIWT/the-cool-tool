@@ -88,6 +88,40 @@ export const Nav = styled.nav`
     align-items: center;
     justify-content: center;
     border-right: 1px solid var(--secondary-color);
+    position: relative;
+    transition: all 0.3s ease;
+
+    a, image {
+        transition: all 0.3s ease;
+        transform: translateX(0);
+    }
+
+    .closed & {
+        width: 2%;
+        a, img {
+            transform: translateX(-100%);
+        }
+    }
+`
+
+export const Minimizer = styled.div`
+    position: absolute;
+    top: 20px;
+    right: -12px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    padding-top: 2px;
+
+    :hover {
+        transform: scale(1.2);
+        padding-top: 3px;
+    }
 `
 
 export const Main = styled.main`
@@ -95,6 +129,10 @@ export const Main = styled.main`
     height: 100%;
     display: grid;
     place-items: center;
+
+    .closed & {
+        width: 100%;
+    }
 `
 
 export const Logo = styled.img`
