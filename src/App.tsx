@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import { BrowserRouter as Router, Routes, HashRouter, Route, Link } from 'react-router-dom'
-import { Links, Wrapper, Nav, Main, Logo } from './styles/Common'
+import { Links, Wrapper, Nav, Main, Logo, Minimizer } from './styles/Common'
 import { Home } from './components/Home'
 import { Base64Tool } from './components/Base64Tool'
 import { QRCodeTool } from './components/QRCodeTool'
@@ -8,7 +9,6 @@ import { GlobalStyle } from './styles/GlobalStyle'
 import { FileSearchTool } from './components/FileSearchTool'
 import { JsonYamlTool } from './components/JsonYamlTool'
 import { JsonBeautifierTool } from './components/JsonBeautifierTool'
-
 import logo from './assets/logo.png'
 
 const routes = [
@@ -64,11 +64,12 @@ const routes = [
 ]
 
 export function App() {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true)
     return (
         <>
             <GlobalStyle />
             <HashRouter>
-                <Wrapper>
+                <Wrapper className={isSidebarOpen ? 'open' : 'closed'}>
                     <Nav>
                         <Links>
                             {routes.map(({ path, sidebar }, index) => (
@@ -82,6 +83,9 @@ export function App() {
                             ))}
                         </Links>
                         <Logo src={logo} alt="logo" />
+                        <Minimizer onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+                            {isSidebarOpen ? '<' : '>'}
+                        </Minimizer>
                     </Nav>
                     <Main>
                         <Routes>
