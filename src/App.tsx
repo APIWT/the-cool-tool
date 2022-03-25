@@ -10,6 +10,7 @@ import { FileSearchTool } from './components/FileSearchTool'
 import { JsonYamlTool } from './components/JsonYamlTool'
 import { JsonBeautifierTool } from './components/JsonBeautifierTool'
 import logo from './assets/logo.png'
+import { CsvToJson } from './components/CSV2JSON/CsvToJson'
 
 const routes = [
     {
@@ -53,6 +54,13 @@ const routes = [
         exact: true,
         sidebar: () => <div>JSON/YAML Tool</div>,
         main: () => <JsonYamlTool />,
+    },
+    {
+        path: '/csv-to-json',
+        name: 'CSV to JSON converter',
+        exact: true,
+        sidebar: () => <div>CSV to JSON</div>,
+        main: () => <CsvToJson />,
     },
     {
         path: '/json-beautifier',
